@@ -28,9 +28,8 @@ public class Master : MonoBehaviour {
         ogreSpawnPoint = spawnPoints[ogreSpawnPointIndex];
         goalPoint = goalPoints[goalPointIndex];
 
-        Manager.characterSpawnPoint = ogreSpawnPoint;
-
-
+        PlayerStatus.spawnPoint = ogreSpawnPoint;
+        //OSC
     }
     
     void InitializePoints() {

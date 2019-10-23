@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
+     <Compile Include="Assets\Scripts\EnemyPositionTracker.cs" />
      <Compile Include="Assets\Scripts\EnemyTrigger.cs" />
      <Compile Include="Assets\Scripts\KeyConfig.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
@@ -68,6 +69,7 @@
      <Compile Include="Assets\Scripts\OSC\OSCReciever.cs" />
      <Compile Include="Assets\Scripts\OSC\OSCServer.cs" />
      <Compile Include="Assets\Scripts\OSCHandler.cs" />
+     <Compile Include="Assets\Scripts\PlayerStatus.cs" />
      <Compile Include="Assets\Scripts\VillagerStatus.cs" />
      <None Include="Assets\Imports\SkySerie Freebie\Hdri setup.txt" />
  <Reference Include="Unity.Timeline.Editor">
