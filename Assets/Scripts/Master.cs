@@ -30,6 +30,7 @@ public class Master : MonoBehaviour {
 
         Manager.spawnPoint = ogreSpawnPoint;
         //OSC
+        Client.SpawnSend(villagerSpawnPoint);
     }
     
     void InitializePoints() {

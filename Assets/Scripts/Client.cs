@@ -23,4 +23,8 @@ public class Client : MonoBehaviour{
         positionList.Add(transform.position.z);
         OSCHandler.Instance.SendMessageToClient("Akaoni","/position",positionList);//Akaoniでいいのかな
     }
+
+    static public void SpawnSend(Vector3 point){
+        OSCHandler.Instance.SendMessageToClient("Akaoni","/Spawn",point);
+    }
 }
