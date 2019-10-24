@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour {
     static float time = 0.0f;
-    static bool pointedFlag = false;
-    static bool preparedFlag = false;
-    static bool startFlag = false;
-    static bool endFlag = false;
-    public static Vector3 spawnPoint {set; get;}
+    static public bool pointedFlag = false;
+    static public bool preparedFlag = false;
+    static public bool startFlag = false;
+    static public bool endFlag = false;
+    public static Vector3 spawnPoint {set; get;} = Vector3.zero;
 
     void Update() {
         if (spawnPoint != Vector3.zero && !pointedFlag) {
@@ -26,6 +26,13 @@ public class Manager : MonoBehaviour {
 
     public static void Prepared() {
         preparedFlag = true;
+
+        if(GameObject.FindWithTag("Player").name == "Ogre") {
+            Master.flagCount++;
+        }
+        else {
+            Client.ReturnFlag();
+        }
         // preparedFlag が true になった後に地形生成をする
         // 本来は地形生成後 startedFlag を true にする
         GameStart();

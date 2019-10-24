@@ -5,6 +5,7 @@ using UnityEngine;
 public class Master : MonoBehaviour {
     Vector3[] spawnPoints = new Vector3[8];
     Vector3[] goalPoints = new Vector3[4];
+    static public int flagCount = 0; //flagCount が2になったら地形生成を実行
 
     void Start() {
         InitializePoints();

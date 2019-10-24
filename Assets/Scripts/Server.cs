@@ -38,15 +38,19 @@ public class Server : MonoBehaviour{
                     Vector3 enemyPosition;
                     enemyPosition.x = (float)item.Value.packets[lastPacketIndex].Data[0];
                     enemyPosition.y = (float)item.Value.packets[lastPacketIndex].Data[1];
-                    enemyPosition.z = (float)item.Value.packets[lastPacketIndex].Data[0];
+                    enemyPosition.z = (float)item.Value.packets[lastPacketIndex].Data[2];
                     EnemyPositionTracker.enemyPosition = enemyPosition;
 				}
 				if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Spawn"){
                     Vector3 spawnPosition;
                     spawnPosition.x = (float)item.Value.packets[lastPacketIndex].Data[0];
                     spawnPosition.y = (float)item.Value.packets[lastPacketIndex].Data[1];
-                    spawnPosition.z = (float)item.Value.packets[lastPacketIndex].Data[0];
+                    spawnPosition.z = (float)item.Value.packets[lastPacketIndex].Data[2];
                     Manager.spawnPoint = spawnPosition;
+                    Debug.Log("Get OSC spawn\n");
+				}
+                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/preparedFlag"){
+                    Master.flagCount++;
 				}
 			}
 		} 

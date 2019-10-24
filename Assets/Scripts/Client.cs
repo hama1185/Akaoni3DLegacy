@@ -26,5 +26,10 @@ public class Client : MonoBehaviour{
 
     static public void SpawnSend(Vector3 point){
         OSCHandler.Instance.SendMessageToClient("Akaoni","/Spawn",point);
+        Debug.Log("Send osc spawn");
+    }
+
+    static public void ReturnFlag(){
+        OSCHandler.Instance.SendMessageToClient("Akaoni","/preparedFlag",1);//本来True
     }
 }
