@@ -11,16 +11,27 @@ public class Client : MonoBehaviour{
     public int port;
 	#endregion //----------追記
     // Start is called before the first frame update
-    void Start(){
+    void Awake() {
         OSCHandler.Instance.clientInit("Akaoni", ip,port);//ipには接続先のipアドレスの文字列を入れる。
     }
-
     // Update is called once per frame
-    void Update(){
+    void FixedUpdate() {
         List<float> positionList = new List<float>();
         positionList.Add(transform.position.x);
         positionList.Add(transform.position.y);
         positionList.Add(transform.position.z);
         OSCHandler.Instance.SendMessageToClient("Akaoni","/position",positionList);//Akaoniでいいのかな
+    }
+
+    static public void SpawnSend(Vector3 point){
+        List<float> pointList = new List<float>();
+        pointList.Add(point.x);
+        pointList.Add(point.y);
+        pointList.Add(point.z);
+        OSCHandler.Instance.SendMessageToClient("Akaoni","/Spawn",pointList);
+    }
+
+    static public void ReturnFlag(){
+        OSCHandler.Instance.SendMessageToClient("Akaoni","/Pflag","OK");//本来True
     }
 }
