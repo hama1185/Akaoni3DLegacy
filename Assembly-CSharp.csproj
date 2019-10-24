@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
      <Compile Include="Assets\Scripts\Client.cs" />
      <Compile Include="Assets\Scripts\EnemyPositionTracker.cs" />
+     <Compile Include="Assets\Scripts\EnemyStatus.cs" />
      <Compile Include="Assets\Scripts\EnemyTrigger.cs" />
      <Compile Include="Assets\Scripts\KeyConfig.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\Scripts\OSCHandler.cs" />
      <Compile Include="Assets\Scripts\PlayerStatus.cs" />
      <Compile Include="Assets\Scripts\Server.cs" />
+     <Compile Include="Assets\Scripts\SoundsController.cs" />
      <Compile Include="Assets\Scripts\SpawnPointTrigger.cs" />
      <Compile Include="Assets\Scripts\VillagerStatus.cs" />
      <None Include="Assets\Imports\SkySerie Freebie\Hdri setup.txt" />
