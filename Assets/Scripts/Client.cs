@@ -25,7 +25,11 @@ public class Client : MonoBehaviour{
     }
 
     static public void SpawnSend(Vector3 point){
-        OSCHandler.Instance.SendMessageToClient("Akaoni","/Spawn",point);
+        List<float> pointList = new List<float>();
+        pointList.Add(point.x);
+        pointList.Add(point.y);
+        pointList.Add(point.z);
+        OSCHandler.Instance.SendMessageToClient("Akaoni","/Spawn",pointList);
         Debug.Log("Send osc spawn");
     }
 
