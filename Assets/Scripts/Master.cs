@@ -9,7 +9,6 @@ public class Master : MonoBehaviour {
     void Start() {
         InitializePoints();
         CalculateSpawnPoints();
-        Manager.Initialize();
     }
 
     void CalculateSpawnPoints() {

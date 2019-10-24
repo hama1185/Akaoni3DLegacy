@@ -71,11 +71,8 @@
      <Compile Include="Assets\Scripts\OSC\OSCServer.cs" />
      <Compile Include="Assets\Scripts\OSCHandler.cs" />
      <Compile Include="Assets\Scripts\PlayerStatus.cs" />
-<<<<<<< HEAD
      <Compile Include="Assets\Scripts\Server.cs" />
-=======
      <Compile Include="Assets\Scripts\SpawnPointTrigger.cs" />
->>>>>>> da510f7d436959a728a7d32356b19818fb6780dc
      <Compile Include="Assets\Scripts\VillagerStatus.cs" />
      <None Include="Assets\Imports\SkySerie Freebie\Hdri setup.txt" />
  <Reference Include="Unity.Timeline.Editor">

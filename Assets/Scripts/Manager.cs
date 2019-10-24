@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour {
     static float time = 0.0f;
+    static bool pointedFlag = false;
     static bool preparedFlag = false;
     static bool startFlag = false;
+    static bool endFlag = false;
     public static Vector3 spawnPoint {set; get;}
 
     void Update() {
+        if (spawnPoint != Vector3.zero && !pointedFlag) {
+            CreateSpawnPointMarker(spawnPoint);
+            pointedFlag = true;
+        }
         if (startFlag) {
-            time += Time.deltaTime;
-            if (time >= 10.0f) {
+            time = Time.deltaTime;
+            if (time >= 10.0f && !endFlag) {
                 Debug.Log("Time Up");
+                endFlag = true;
             }
         }
-    }
-
-    public static void Initialize() {
-        CreateSpawnPointMarker(spawnPoint);
     }
 
     public static void Prepared() {
