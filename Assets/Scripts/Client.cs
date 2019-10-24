@@ -15,7 +15,7 @@ public class Client : MonoBehaviour{
         OSCHandler.Instance.clientInit("Akaoni", ip,port);//ipには接続先のipアドレスの文字列を入れる。
     }
     // Update is called once per frame
-    void Update(){
+    void FixedUpdate() {
         List<float> positionList = new List<float>();
         positionList.Add(transform.position.x);
         positionList.Add(transform.position.y);

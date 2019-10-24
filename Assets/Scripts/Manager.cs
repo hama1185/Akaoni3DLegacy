@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour {
             pointedFlag = true;
         }
         if (startFlag) {
-            time = Time.deltaTime;
+            time += Time.deltaTime;
             if (time >= 10.0f && !endFlag) {
                 Debug.Log("Time Up");
                 endFlag = true;

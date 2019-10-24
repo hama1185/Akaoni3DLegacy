@@ -12,11 +12,12 @@ public class Master : MonoBehaviour {
         CalculateSpawnPoints();
     }
 
-    void Updata(){
-        if(flagCount == 2){
-            Debug.Log("地形データを生成する\n");
+    void Update(){
+        if(flagCount >= 2){
+            Debug.Log(flagCount);
         }
     }
+
     void CalculateSpawnPoints() {
         int villagerSpawnPointIndex = 0;
         int ogreSpawnPointIndex = 0;
