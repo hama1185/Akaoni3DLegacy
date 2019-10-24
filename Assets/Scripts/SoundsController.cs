@@ -19,6 +19,10 @@ public class SoundsController : MonoBehaviour {
     }
 
     void Update() {
+        if (Manager.startFlag && !footStepAudio.isPlaying) {
+            footStepAudio.Play();
+        }
+
         if (Input.GetKey(KeyCode.UpArrow)) {
             PlayerStatus.tension += 0.1f * Time.deltaTime;
             Debug.Log("Player : " + PlayerStatus.tension);

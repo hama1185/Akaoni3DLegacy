@@ -43,20 +43,17 @@ public class Server : MonoBehaviour{
                     enemyPosition.z = (float)item.Value.packets[lastPacketIndex].Data[2];
                     EnemyPositionTracker.enemyPosition = enemyPosition;
 				}
-				else if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Spawn"){
+				if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Spawn"){
                     Vector3 spawnPosition;
                     spawnPosition.x = (float)item.Value.packets[lastPacketIndex].Data[0];
                     spawnPosition.y = (float)item.Value.packets[lastPacketIndex].Data[1];
                     spawnPosition.z = (float)item.Value.packets[lastPacketIndex].Data[2];
                     Manager.spawnPoint = spawnPosition;
 				}
-                else if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Pflag" && !flag){
+                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Pflag" && !flag){
                     Master.flagCount++;
                     flag = true;
 				}
-                else {
-                    Debug.Log("?? " + item.Value.packets[lastPacketIndex].Address.ToString());
-                }
 			}
 		} 
     }
