@@ -12,10 +12,10 @@ public class Server : MonoBehaviour{
 	#endregion //----------追記
 
 	private Dictionary<string, ServerLog> servers;
-    
-    void Start(){
+
+    void Awake() {
         OSCHandler.Instance.serverInit(serverName,inComingPort); //init OSC　//----------変更
-        servers = new Dictionary<string, ServerLog>();
+        servers = new Dictionary<string, ServerLog>();    
     }
 
     // Update is called once per frame
@@ -47,9 +47,8 @@ public class Server : MonoBehaviour{
                     spawnPosition.y = (float)item.Value.packets[lastPacketIndex].Data[1];
                     spawnPosition.z = (float)item.Value.packets[lastPacketIndex].Data[2];
                     Manager.spawnPoint = spawnPosition;
-                    Debug.Log("Get OSC spawn\n");
 				}
-                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/preparedFlag"){
+                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Pflag"){
                     Master.flagCount++;
 				}
 			}
