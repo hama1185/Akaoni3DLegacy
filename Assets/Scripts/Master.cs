@@ -9,6 +9,7 @@ public class Master : MonoBehaviour {
     void Start() {
         InitializePoints();
         CalculateSpawnPoints();
+        Manager.Initialize();
     }
 
     void CalculateSpawnPoints() {
@@ -28,7 +29,7 @@ public class Master : MonoBehaviour {
         ogreSpawnPoint = spawnPoints[ogreSpawnPointIndex];
         goalPoint = goalPoints[goalPointIndex];
 
-        PlayerStatus.spawnPoint = ogreSpawnPoint;
+        Manager.spawnPoint = ogreSpawnPoint;
         //OSC
     }
     
