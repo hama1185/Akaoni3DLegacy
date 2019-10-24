@@ -56,12 +56,10 @@ public struct ClientLog
 public class OSCHandler : MonoBehaviour
 {
 	#region Singleton Constructors
-	static OSCHandler()
-	{
+	static OSCHandler(){
 	}
 
-	OSCHandler()
-	{
+	OSCHandler(){
 	}
 	
 	public static OSCHandler Instance 
@@ -92,7 +90,7 @@ public class OSCHandler : MonoBehaviour
 	/// Initializes the OSC Handler.
 	/// Here you can create the OSC servers and clientes.
 	/// </summary>
-	public void Init()
+	public void serverInit(string serverName ,int inComingPort)
 	{
         //Initialize OSC clients (transmitters)
         //Example:		
@@ -100,8 +98,17 @@ public class OSCHandler : MonoBehaviour
 
         //Initialize OSC servers (listeners)
         //Example:
+		CreateServer(serverName, inComingPort);	
+    }
+	public void clientInit(string clientId, string ip, int port)
+	{
+        //Initialize OSC clients (transmitters)
+        //Example:		
+        CreateClient(clientId, IPAddress.Parse(ip), port);
 
-        //CreateServer("AndroidPhone", 6666);
+        //Initialize OSC servers (listeners)
+        //Example:
+		//CreateServer(serverName, inComingPort);	
     }
 
     #region Properties
