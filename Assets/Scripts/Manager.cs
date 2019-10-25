@@ -41,6 +41,7 @@ public class Manager : MonoBehaviour {
     public static void GameStart() {
         startFlag = true;
         GameObject.FindWithTag("Enemy").transform.GetChild(0).gameObject.SetActive(true);
+        GameObject.FindWithTag("Wall").gameObject.SetActive(true);
     }
 
     public static void CreateSpawnPointMarker(Vector3 spawnPoint) {
