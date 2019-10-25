@@ -14,7 +14,10 @@ public class Master : MonoBehaviour {
 
     void Update(){
         if(flagCount >= 2){
-            Debug.Log(flagCount);
+            if(!Manager.startFlag){
+                Client.ReturnSflag();//村人Manager.GameStartさせる
+                Manager.GameStart();//鬼Manager.gameStartさせる
+            }
         }
     }
 

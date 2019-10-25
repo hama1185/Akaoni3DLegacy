@@ -31,7 +31,10 @@ public class Client : MonoBehaviour{
         OSCHandler.Instance.SendMessageToClient("Akaoni","/Spawn",pointList);
     }
 
-    static public void ReturnFlag(){
+    static public void ReturnPflag(){
         OSCHandler.Instance.SendMessageToClient("Akaoni","/Pflag","OK");//本来True
+    }
+    static public void ReturnSflag(){
+        OSCHandler.Instance.SendMessageToClient("Akaoni","/Sflag","OK");//本来True
     }
 }

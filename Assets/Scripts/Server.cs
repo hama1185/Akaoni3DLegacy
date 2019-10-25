@@ -13,8 +13,8 @@ public class Server : MonoBehaviour{
 
 	private Dictionary<string, ServerLog> servers;
 
-    static bool flag = false;
-
+    static bool limitPflag = false;
+    static bool limitSflag = false;
     void Awake() {
         OSCHandler.Instance.serverInit(serverName,inComingPort); //init OSC　//----------変更
         servers = new Dictionary<string, ServerLog>();    
@@ -50,9 +50,13 @@ public class Server : MonoBehaviour{
                     spawnPosition.z = (float)item.Value.packets[lastPacketIndex].Data[2];
                     Manager.spawnPoint = spawnPosition;
 				}
-                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Pflag" && !flag){
+                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Pflag" && !limitPflag){
                     Master.flagCount++;
-                    flag = true;
+                    limitPflag = true;
+				}
+                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Pflag" && !limitSflag){
+                    Manager.GameStart();
+                    limitSflag = true;
 				}
 			}
 		} 
