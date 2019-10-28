@@ -54,7 +54,7 @@ public class Server : MonoBehaviour{
                     Master.flagCount++;
                     limitPflag = true;
 				}
-                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Pflag" && !limitSflag){
+                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Sflag" && !limitSflag){
                     Manager.GameStart();
                     limitSflag = true;
 				}
