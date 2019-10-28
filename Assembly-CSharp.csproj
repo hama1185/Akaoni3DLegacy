@@ -72,10 +72,12 @@
      <Compile Include="Assets\Scripts\OSC\OSCServer.cs" />
      <Compile Include="Assets\Scripts\OSCHandler.cs" />
      <Compile Include="Assets\Scripts\PlayerStatus.cs" />
+     <Compile Include="Assets\Scripts\PostEffect.cs" />
      <Compile Include="Assets\Scripts\Server.cs" />
      <Compile Include="Assets\Scripts\SoundsController.cs" />
      <Compile Include="Assets\Scripts\SpawnPointTrigger.cs" />
      <Compile Include="Assets\Scripts\VillagerStatus.cs" />
+     <None Include="Assets\Resources\Materials\red.shader" />
      <None Include="Assets\Imports\SkySerie Freebie\Hdri setup.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProject/Akaoni3D/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
