@@ -41,6 +41,9 @@ public class Manager : MonoBehaviour {
         startFlag = true;
         GameObject.FindWithTag("Enemy").transform.GetChild(0).gameObject.SetActive(true);
         GameObject.Find("Walls").transform.GetChild(0).gameObject.SetActive(true);
+        if(GameObject.FindWithTag("Player").name == "Ogre"){
+            GameObject.FindWithTag("Enemy").GetComponent<FootSpawn>().enabled = true;
+        }
     }
 
     public static void CreateSpawnPointMarker(Vector3 spawnPoint) {

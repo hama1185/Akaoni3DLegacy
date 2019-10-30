@@ -303,7 +303,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289955109}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 984ec80d72684894baf2452e6bc4aede, type: 3}
   m_Name: 
@@ -1536,6 +1536,7 @@ GameObject:
   - component: {fileID: 1672143076}
   - component: {fileID: 1672143075}
   - component: {fileID: 1672143077}
+  - component: {fileID: 1672143078}
   m_Layer: 0
   m_Name: Villager
   m_TagString: Enemy
@@ -1641,8 +1642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07baed1e25dbcfe4a87e2ea9b7fe7305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverName: 192.168.11.30
-  inComingPort: 8000
+  serverName: 
+  inComingPort: 0
 --- !u!114 &1672143077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1655,6 +1656,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a187e532bf4b147ab7e48e97373451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1672143078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672143070}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a84c04a3138d9442b87eb0fe84d114a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footObject: {fileID: 4290208423415619154, guid: d2571ddd2b4f67e40a4bb7b8a5d4c5ef,
+    type: 3}
 --- !u!1 &1816543403
 GameObject:
   m_ObjectHideFlags: 0

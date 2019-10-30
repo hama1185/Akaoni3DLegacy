@@ -60,6 +60,9 @@
      <Compile Include="Assets\Scripts\EnemyPositionTracker.cs" />
      <Compile Include="Assets\Scripts\EnemyStatus.cs" />
      <Compile Include="Assets\Scripts\EnemyTrigger.cs" />
+     <Compile Include="Assets\Scripts\EnterFootRate.cs" />
+     <Compile Include="Assets\Scripts\FootController.cs" />
+     <Compile Include="Assets\Scripts\FootSpawn.cs" />
      <Compile Include="Assets\Scripts\KeyConfig.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
      <Compile Include="Assets\Scripts\Master.cs" />
