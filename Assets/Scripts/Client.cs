@@ -17,9 +17,15 @@ public class Client : MonoBehaviour{
     // Update is called once per frame
     void FixedUpdate() {
         List<float> positionList = new List<float>();
+        float eulerY;
+
+        eulerY = transform.rotation.eulerAngles.y;
+
         positionList.Add(transform.position.x);
         positionList.Add(transform.position.y);
         positionList.Add(transform.position.z);
+        positionList.Add(eulerY);
+
         OSCHandler.Instance.SendMessageToClient("Akaoni","/position",positionList);//Akaoniでいいのかな
     }
 
@@ -31,7 +37,10 @@ public class Client : MonoBehaviour{
         OSCHandler.Instance.SendMessageToClient("Akaoni","/Spawn",pointList);
     }
 
-    static public void ReturnFlag(){
+    static public void ReturnPflag(){
         OSCHandler.Instance.SendMessageToClient("Akaoni","/Pflag","OK");//本来True
+    }
+    static public void ReturnSflag(){
+        OSCHandler.Instance.SendMessageToClient("Akaoni","/Sflag","OK");//本来True
     }
 }
