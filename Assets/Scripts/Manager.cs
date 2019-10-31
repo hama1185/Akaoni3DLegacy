@@ -43,6 +43,7 @@ public class Manager : MonoBehaviour {
         GameObject.Find("Walls").transform.GetChild(0).gameObject.SetActive(true);
         if(GameObject.FindWithTag("Player").name == "Ogre"){
             GameObject.FindWithTag("Enemy").GetComponent<FootSpawn>().enabled = true;
+            GameObject.FindWithTag("Player").transform.GetChild(0).gameObject.GetComponent<PostEffect>().enabled = true;
         }
     }
 
