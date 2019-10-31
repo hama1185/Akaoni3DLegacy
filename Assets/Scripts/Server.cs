@@ -38,10 +38,13 @@ public class Server : MonoBehaviour{
 				
                 if(item.Value.packets[lastPacketIndex].Address.ToString() == "/position"){
                     Vector3 enemyPosition;
+                    float rotY;
                     enemyPosition.x = (float)item.Value.packets[lastPacketIndex].Data[0];
                     enemyPosition.y = (float)item.Value.packets[lastPacketIndex].Data[1];
                     enemyPosition.z = (float)item.Value.packets[lastPacketIndex].Data[2];
+                    rotY = (float)item.Value.packets[lastPacketIndex].Data[3];
                     EnemyPositionTracker.enemyPosition = enemyPosition;
+                    FootSpawn.enemyAngle = rotY;
 				}
 				if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Spawn"){
                     Vector3 spawnPosition;
