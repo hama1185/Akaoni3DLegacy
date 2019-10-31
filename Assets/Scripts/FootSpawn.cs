@@ -16,6 +16,7 @@ public class FootSpawn : MonoBehaviour
         if(this.time > beatRate){
             this.time = 0;
             Vector3 position = transform.position;
+            //敵のrotationも欲しいかも
             position.y = 0.1f;
             Instantiate(footObject, position, transform.rotation);
         }

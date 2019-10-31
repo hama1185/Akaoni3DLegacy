@@ -1642,8 +1642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07baed1e25dbcfe4a87e2ea9b7fe7305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverName: 
-  inComingPort: 0
+  serverName: 192.168.11.30
+  inComingPort: 8000
 --- !u!114 &1672143077
 MonoBehaviour:
   m_ObjectHideFlags: 0
