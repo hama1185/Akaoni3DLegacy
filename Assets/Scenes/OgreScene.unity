@@ -1325,8 +1325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f675afa708b58a418919b1163cb41d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ip: 192.168.11.30
-  port: 8001
+  ip: 
+  port: 0
 --- !u!114 &1309159987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1642,8 +1642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07baed1e25dbcfe4a87e2ea9b7fe7305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverName: 192.168.11.30
-  inComingPort: 8000
+  serverName: 
+  inComingPort: 0
 --- !u!114 &1672143077
 MonoBehaviour:
   m_ObjectHideFlags: 0
