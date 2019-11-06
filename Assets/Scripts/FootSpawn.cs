@@ -19,6 +19,12 @@ public class FootSpawn : MonoBehaviour
             Vector3 position = transform.position;
             //敵のrotationも欲しいかも
             position.y = 0.1f;
+            if(enemyAngle < 0){
+                enemyAngle = enemyAngle + 180;
+            }
+            else{
+                enemyAngle = enemyAngle - 180;
+            }
             Instantiate(footObject, position, Quaternion.Euler(0, enemyAngle, 0));
         }
     }

@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ip: 
-  port: 0
+  port: 8001
 --- !u!114 &1309159987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverName: 
-  inComingPort: 0
+  inComingPort: 8000
 --- !u!114 &1672143077
 MonoBehaviour:
   m_ObjectHideFlags: 0
