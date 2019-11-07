@@ -35,7 +35,17 @@ public class Server : MonoBehaviour{
 				// 	item.Key, // Server name
 				// 	item.Value.packets[lastPacketIndex].Address, // OSC address
 				// 	item.Value.packets[lastPacketIndex].Data[0].ToString())); //First data value
-				
+
+                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/input"){
+                    Vector3 velocity;
+                    float rotY;
+                    velocity.x = (float)item.Value.packets[lastPacketIndex].Data[0];
+                    velocity.y = 0.0f;
+                    velocity.z = (float)item.Value.packets[lastPacketIndex].Data[1];
+                    rotY = (float)item.Value.packets[lastPacketIndex].Data[2];
+                    VelocityController.inputAxis_Left = velocity;
+                    // rotYをCharacterMovement scriptに割り当てる
+                }
                 if(item.Value.packets[lastPacketIndex].Address.ToString() == "/position"){
                     Vector3 enemyPosition;
                     float rotY;
@@ -62,6 +72,7 @@ public class Server : MonoBehaviour{
                     limitSflag = true;
 				}
 			}
-		} 
+		}
+        // Debug.Log(Time.deltaTime);
     }
 }
