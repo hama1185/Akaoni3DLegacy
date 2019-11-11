@@ -18,8 +18,8 @@ public class Client : MonoBehaviour{
     void Awake() {
         OSCHandler.Instance.clientInit("Akaoni", ip,port);//ipには接続先のipアドレスの文字列を入れる。
     }
-    // Update is called once per frame
-    void FixedUpdate() {
+    
+    void Update() {
         // FixedUpdate を使わないで 5 FPSの速度で通信する
         elapsedTime += Time.deltaTime;
         

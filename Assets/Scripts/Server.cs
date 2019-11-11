@@ -37,6 +37,7 @@ public class Server : MonoBehaviour{
 				// 	item.Value.packets[lastPacketIndex].Data[0].ToString())); //First data value
 
                 if(item.Value.packets[lastPacketIndex].Address.ToString() == "/input"){
+                    // RealSense->
                     Vector3 velocity;
                     float rotY;
                     velocity.x = (float)item.Value.packets[lastPacketIndex].Data[0];
@@ -57,6 +58,7 @@ public class Server : MonoBehaviour{
                     FootSpawn.enemyAngle = rotY;
 				}
 				if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Spawn"){
+                    Debug.Log("a");
                     Vector3 spawnPosition;
                     spawnPosition.x = (float)item.Value.packets[lastPacketIndex].Data[0];
                     spawnPosition.y = (float)item.Value.packets[lastPacketIndex].Data[1];

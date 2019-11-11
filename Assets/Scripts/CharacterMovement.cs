@@ -31,7 +31,7 @@ public class CharacterMovement : MonoBehaviour {
 
         character.velocity = velocityController.velocity;
 
-        Debug.Log("speed : " + character.velocity.magnitude + "    vecter : " + character.velocity);
+        // Debug.Log("speed : " + character.velocity.magnitude + "    vecter : " + character.velocity);
         // Debug.Log(Time.deltaTime);
     }
 
