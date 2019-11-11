@@ -21,11 +21,14 @@ public class Server : MonoBehaviour{
     }
 
     // Update is called once per frame
-    void Update(){
+
+    void Update() {
         OSCHandler.Instance.UpdateLogs();
 		servers = OSCHandler.Instance.Servers;
-
-		foreach( KeyValuePair<string, ServerLog> item in servers ){
+    }
+    
+    void LateUpdate(){
+        foreach( KeyValuePair<string, ServerLog> item in servers ){
 			// If we have received at least one packet,
 			// show the last received from the log in the Debug console
 			if(item.Value.log.Count > 0){
