@@ -1199,9 +1199,9 @@ GameObject:
   - component: {fileID: 1309159980}
   - component: {fileID: 1309159989}
   - component: {fileID: 1309159984}
-  - component: {fileID: 1309159985}
   - component: {fileID: 1309159986}
   - component: {fileID: 1309159987}
+  - component: {fileID: 1309159985}
   - component: {fileID: 1309159988}
   m_Layer: 0
   m_Name: Ogre
