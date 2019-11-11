@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\OSCHandler.cs" />
      <Compile Include="Assets\Scripts\PlayerStatus.cs" />
      <Compile Include="Assets\Scripts\PostEffect.cs" />
+     <Compile Include="Assets\Scripts\RealSenseInputController.cs" />
      <Compile Include="Assets\Scripts\Server.cs" />
      <Compile Include="Assets\Scripts\SoundsController.cs" />
      <Compile Include="Assets\Scripts\SpawnPointTrigger.cs" />
