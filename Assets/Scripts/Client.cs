@@ -11,22 +11,33 @@ public class Client : MonoBehaviour{
     public int port;
 	#endregion //----------追記
     // Start is called before the first frame update
+
+    float elapsedTime = 0.0f;
+    float interval = 0.2f;
+
     void Awake() {
         OSCHandler.Instance.clientInit("Akaoni", ip,port);//ipには接続先のipアドレスの文字列を入れる。
     }
-    // Update is called once per frame
-    void FixedUpdate() {
-        List<float> positionList = new List<float>();
-        float eulerY;
+    
+    void Update() {
+        // FixedUpdate を使わないで 5 FPSの速度で通信する
+        elapsedTime += Time.deltaTime;
+        
+        if (elapsedTime > interval) {
+            elapsedTime = 0.0f;
 
-        eulerY = transform.rotation.eulerAngles.y;
+            List<float> positionList = new List<float>();
+            float eulerY;
 
-        positionList.Add(transform.position.x);
-        positionList.Add(transform.position.y);
-        positionList.Add(transform.position.z);
-        positionList.Add(eulerY);
+            eulerY = transform.rotation.eulerAngles.y;
 
-        OSCHandler.Instance.SendMessageToClient("Akaoni","/position",positionList);//Akaoniでいいのかな
+            positionList.Add(transform.position.x);
+            positionList.Add(transform.position.y);
+            positionList.Add(transform.position.z);
+            positionList.Add(eulerY);
+
+            OSCHandler.Instance.SendMessageToClient("Akaoni","/position",positionList);//Akaoniでいいのかな
+        }
     }
 
     static public void SpawnSend(Vector3 point){

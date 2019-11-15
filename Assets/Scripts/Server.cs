@@ -21,11 +21,14 @@ public class Server : MonoBehaviour{
     }
 
     // Update is called once per frame
-    void Update(){
+
+    void Update() {
         OSCHandler.Instance.UpdateLogs();
 		servers = OSCHandler.Instance.Servers;
-
-		foreach( KeyValuePair<string, ServerLog> item in servers ){
+    }
+    
+    void LateUpdate(){
+        foreach( KeyValuePair<string, ServerLog> item in servers ){
 			// If we have received at least one packet,
 			// show the last received from the log in the Debug console
 			if(item.Value.log.Count > 0){
@@ -35,7 +38,18 @@ public class Server : MonoBehaviour{
 				// 	item.Key, // Server name
 				// 	item.Value.packets[lastPacketIndex].Address, // OSC address
 				// 	item.Value.packets[lastPacketIndex].Data[0].ToString())); //First data value
-				
+
+                if(item.Value.packets[lastPacketIndex].Address.ToString() == "/input"){
+                    // RealSense->
+                    Vector3 velocity;
+                    float rotY;
+                    velocity.x = (float)item.Value.packets[lastPacketIndex].Data[0];
+                    velocity.y = 0.0f;
+                    velocity.z = (float)item.Value.packets[lastPacketIndex].Data[1];
+                    rotY = (float)item.Value.packets[lastPacketIndex].Data[2];
+                    VelocityController.inputAxis_Left = velocity;
+                    // rotYをCharacterMovement scriptに割り当てる
+                }
                 if(item.Value.packets[lastPacketIndex].Address.ToString() == "/position"){
                     Vector3 enemyPosition;
                     float rotY;
@@ -47,6 +61,7 @@ public class Server : MonoBehaviour{
                     FootSpawn.enemyAngle = rotY;
 				}
 				if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Spawn"){
+                    Debug.Log("a");
                     Vector3 spawnPosition;
                     spawnPosition.x = (float)item.Value.packets[lastPacketIndex].Data[0];
                     spawnPosition.y = (float)item.Value.packets[lastPacketIndex].Data[1];
@@ -62,6 +77,7 @@ public class Server : MonoBehaviour{
                     limitSflag = true;
 				}
 			}
-		} 
+		}
+        // Debug.Log(Time.deltaTime);
     }
 }
