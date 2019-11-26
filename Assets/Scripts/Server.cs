@@ -40,15 +40,21 @@ public class Server : MonoBehaviour{
 				// 	item.Value.packets[lastPacketIndex].Data[0].ToString())); //First data value
 
                 if(item.Value.packets[lastPacketIndex].Address.ToString() == "/input"){
-                    // RealSense->
                     Vector3 velocity;
-                    float rotY;
+                    Quaternion rot;
+
                     velocity.x = (float)item.Value.packets[lastPacketIndex].Data[0];
                     velocity.y = 0.0f;
                     velocity.z = (float)item.Value.packets[lastPacketIndex].Data[1];
-                    rotY = (float)item.Value.packets[lastPacketIndex].Data[2];
+                    rot.x = (float)item.Value.packets[lastPacketIndex].Data[2];
+                    rot.y = (float)item.Value.packets[lastPacketIndex].Data[3];
+                    rot.z = (float)item.Value.packets[lastPacketIndex].Data[4];
+                    rot.w = (float)item.Value.packets[lastPacketIndex].Data[5];
+                    
                     VelocityController.inputAxis_Left = velocity;
-                    // rotYをCharacterMovement scriptに割り当てる
+                    // CameraAdjusterにRealSenseから送られてきたrot.eulerAngles.yを割り当てる (float型)
+                    // y軸中心の回転のずれだけを補正する (x,z軸についてもずれを補正するのはめんどそう)
+                    CameraAdjuster.sentAngle = rot.eulerAngles.y;
                 }
                 if(item.Value.packets[lastPacketIndex].Address.ToString() == "/position"){
                     Vector3 enemyPosition;
