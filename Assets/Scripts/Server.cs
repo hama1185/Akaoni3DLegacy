@@ -13,11 +13,14 @@ public class Server : MonoBehaviour{
 
 	private Dictionary<string, ServerLog> servers;
 
+    CameraAdjuster cameraAdjuster;
+
     static bool limitPflag = false;
     static bool limitSflag = false;
     void Awake() {
         OSCHandler.Instance.serverInit(serverName,inComingPort); //init OSC　//----------変更
-        servers = new Dictionary<string, ServerLog>();    
+        servers = new Dictionary<string, ServerLog>();
+        cameraAdjuster = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<CameraAdjuster>();
     }
 
     // Update is called once per frame
@@ -63,7 +66,8 @@ public class Server : MonoBehaviour{
                     }
 
                     // Debug.Log(eulerY);
-                    CameraAdjuster.sentAngle = eulerY;
+                    cameraAdjuster.sentAngle = eulerY;
+                    cameraAdjuster.Adjust();
                 }
                 if(item.Value.packets[lastPacketIndex].Address.ToString() == "/position"){
                     Vector3 enemyPosition;
