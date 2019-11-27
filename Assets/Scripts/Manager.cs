@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour {
+    public Text resultText;
     static float time = 0.0f;
     static public bool pointedFlag = false;
     static public bool preparedFlag = false;
@@ -20,6 +22,12 @@ public class Manager : MonoBehaviour {
             if (time >= 100.0f && !endFlag) {
                 Debug.Log("Time Up");
                 endFlag = true;
+                if(GameObject.FindWithTag("Player").name == "Villager"){
+                    resultText.text = "You Win!!!";
+                }
+                else{
+                    resultText.text = "You Lose...";
+                }
             }
         }
     }
