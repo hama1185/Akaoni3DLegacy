@@ -14,7 +14,7 @@ public class CameraAdjuster : MonoBehaviour {
     }
 
     void Update(){
-        float subtraction = sentAngle - phoneCam.transform.localRotation.eulerAngles.y + cumulatedSubtraction;
+        float subtraction = sentAngle - phoneCam.transform.localEulerAngles.y - this.transform.localEulerAngles.y;
 
         if (subtraction < -180.0f) {
             subtraction += 360.0f;
@@ -29,8 +29,7 @@ public class CameraAdjuster : MonoBehaviour {
         // Debug.Log(subtraction);
 
         if (subtraction > LEVEL) {
-            this.transform.localRotation = Quaternion.Euler(new Vector3(0.0f, sentAngle + subtraction + cumulatedSubtraction, 0.0f));
-            cumulatedSubtraction += subtraction;
+            this.transform.localRotation = Quaternion.Euler(new Vector3(0.0f, subtraction + this.transform.localEulerAngles.y, 0.0f));
         }
     }
 }
