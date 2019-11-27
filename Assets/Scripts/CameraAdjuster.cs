@@ -2,20 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraAdjuster : MonoBehaviour
-{
-    public static float sentAngle{set;get;}
-    GameObject PhoneCam;
-    // Start is called before the first frame update
+public class CameraAdjuster : MonoBehaviour {
+    public static float sentAngle{get; set;} = 0.0f;
+    GameObject phoneCam;
+
+    float LEVEL = 1.0f;
+    float cumulatedSubtraction = 0.0f;
+
     void Start(){
-        PhoneCam = transform.GetChild(0).gameObject;
+        phoneCam = this.transform.GetChild(0).gameObject;
     }
 
-    // Update is called once per frame
     void Update(){
-        float subtraction = sentAngle - PhoneCam.transform.rotation.eulerAngles.y;
-        //まだ修正
+        float subtraction = sentAngle - phoneCam.transform.localRotation.eulerAngles.y + cumulatedSubtraction;
 
-        this.transform.rotation = Quaternion.Euler(new Vector3(0.0f, -subtraction, 0.0f));
+        if (subtraction < -180.0f) {
+            subtraction += 360.0f;
+        }
+        while (subtraction > 360.0f) {
+            subtraction -= 360.0f;
+        }
+        if (subtraction > 180.0f) {
+            subtraction -= 360.0f;
+        }
+
+        // Debug.Log(subtraction);
+
+        if (subtraction > LEVEL) {
+            this.transform.localRotation = Quaternion.Euler(new Vector3(0.0f, sentAngle + subtraction + cumulatedSubtraction, 0.0f));
+            cumulatedSubtraction += subtraction;
+        }
     }
 }

@@ -16,6 +16,9 @@ public class CharacterMovement : MonoBehaviour {
     }
 
     void Update() {
+        this.transform.rotation = Quaternion.Euler(Vector3.zero);
+        this.transform.position = new Vector3(this.transform.position.x, 1.2f, this.transform.position.z);
+
         Vector3 angle = Vector3.zero;
         float rotH = 0.0f;
         float rotV = 0.0f;

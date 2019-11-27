@@ -52,9 +52,18 @@ public class Server : MonoBehaviour{
                     rot.w = (float)item.Value.packets[lastPacketIndex].Data[5];
                     
                     VelocityController.inputAxis_Left = velocity;
+
                     // CameraAdjusterにRealSenseから送られてきたrot.eulerAngles.yを割り当てる (float型)
                     // y軸中心の回転のずれだけを補正する (x,z軸についてもずれを補正するのはめんどそう)
-                    CameraAdjuster.sentAngle = rot.eulerAngles.y;
+                    float eulerY = rot.eulerAngles.y;
+
+                    eulerY = 360.0f - eulerY;
+                    if (eulerY > 180.0f) {
+                        eulerY -= 360.0f;
+                    }
+
+                    // Debug.Log(eulerY);
+                    CameraAdjuster.sentAngle = eulerY;
                 }
                 if(item.Value.packets[lastPacketIndex].Address.ToString() == "/position"){
                     Vector3 enemyPosition;
