@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class CameraAdjuster : MonoBehaviour {
     public static float sentAngle{get; set;} = 0.0f;
     GameObject phoneCam;
+
     public Text GyroText;
     public Text RealText;
     public Text AdjustText;
     public Text SubText;
+    
     float LEVEL = 1.0f;
     float cumulatedSubtraction = 0.0f;
 

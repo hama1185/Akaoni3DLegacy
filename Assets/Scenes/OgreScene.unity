@@ -1980,9 +1980,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f9efefc4e12cd4aac98d681914edc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GyroText: {fileID: 0}
-  RealText: {fileID: 0}
-  AdjustText: {fileID: 0}
+  GyroText: {fileID: 603250144}
+  RealText: {fileID: 1377880495}
+  AdjustText: {fileID: 1113315180}
+  SubText: {fileID: 1937364191}
 --- !u!1 &1672143070
 GameObject:
   m_ObjectHideFlags: 0
