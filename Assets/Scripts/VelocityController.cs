@@ -7,10 +7,12 @@ public class VelocityController : MonoBehaviour {
     public Vector3 velocity {get; set;}
     float MAX_SPEED = 5.0f;
     float speed;
+    float level;
     (string moveH, string moveV, string viewH, string viewV) key;
 
     void Start() {
         speed = 10.0f;
+        level = 0.38f * speed;
         key = KeyConfig.SetKeyConfig();
     }
 
@@ -34,7 +36,13 @@ public class VelocityController : MonoBehaviour {
             inputAxis_Left = new Vector3(inputAxis_Left.x * MAX_SPEED / magnitude, 0.0f, inputAxis_Left.z * MAX_SPEED / magnitude);
         }
 
-        velocity = inputAxis_Left;
+        if (magnitude < level) {
+            velocity = Vector3.zero;
+        }
+        else {
+            velocity = inputAxis_Left;
+        }
+
         // Debug.Log(Time.deltaTime);
     }
 }
