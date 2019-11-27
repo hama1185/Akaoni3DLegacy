@@ -26,7 +26,7 @@ public class CameraAdjuster : MonoBehaviour {
             subtraction -= 360.0f;
         }
 
-        Debug.Log(subtraction);
+        // Debug.Log(subtraction);
 
         if (subtraction > LEVEL) {
             this.transform.localRotation = Quaternion.Euler(new Vector3(0.0f, sentAngle + subtraction + cumulatedSubtraction, 0.0f));
