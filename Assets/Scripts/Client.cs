@@ -15,10 +15,14 @@ public class Client : MonoBehaviour{
     float elapsedTime = 0.0f;
     float interval = 0.2f;
 
+    GameObject CameraAngle;
+
     void Awake() {
         OSCHandler.Instance.clientInit("Akaoni", ip,port);//ipには接続先のipアドレスの文字列を入れる。
     }
-    
+    void Start() {
+        CameraAngle = this.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).gameObject;
+    }
     void Update() {
         // FixedUpdate を使わないで 5 FPSの速度で通信する
         elapsedTime += Time.deltaTime;
@@ -29,7 +33,7 @@ public class Client : MonoBehaviour{
             List<float> positionList = new List<float>();
             float eulerY;
 
-            eulerY = transform.rotation.eulerAngles.y;
+            eulerY = CameraAngle.transform.eulerAngles.y;
 
             positionList.Add(transform.position.x);
             positionList.Add(transform.position.y);
