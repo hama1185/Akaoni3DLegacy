@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class IpGetter {
+    // public static string phone1IP = "192.168.11.22";
+    // public static string phone2IP = "192.168.11.30";
     public static string phone1IP = "192.168.11.58";
     public static string phone2IP = "192.168.11.59";
     public string ip = "";

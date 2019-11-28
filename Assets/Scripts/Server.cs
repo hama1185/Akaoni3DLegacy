@@ -23,24 +23,18 @@ public class Server : MonoBehaviour{
 
         if (myIP == IpGetter.phone1IP) {
             serverName = IpGetter.phone2IP;
-
-            if (this.gameObject.name == "Villager") {
-                inComingPort = 8000;
-            }
-            else {
-                inComingPort = 8001;
-            }
         }
         else {
             serverName = IpGetter.phone1IP;
-
-            if (this.gameObject.name == "Villager") {
-                inComingPort = 8001;
-            }
-            else {
-                inComingPort = 8000;
-            }
         }
+        
+        if (this.gameObject.name == "Villager") {
+            inComingPort = 8000;
+        }
+        else {
+            inComingPort = 8001;
+        }
+        Debug.Log("server IP : " + serverName + "   port : " + inComingPort);
 
         OSCHandler.Instance.serverInit(serverName,inComingPort); //init OSC　//----------変更
         servers = new Dictionary<string, ServerLog>();

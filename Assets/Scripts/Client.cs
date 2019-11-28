@@ -23,24 +23,19 @@ public class Client : MonoBehaviour{
 
         if (myIP == IpGetter.phone1IP) {
             ip = IpGetter.phone2IP;
-
-            if (this.gameObject.name == "Ogre") {
-                port = 8001;
-            }
-            else {
-                port = 8000;
-            }
         }
         else {
             ip = IpGetter.phone1IP;
-
-            if (this.gameObject.name == "Ogre") {
-                port = 8000;
-            }
-            else {
-                port = 8001;
-            }
         }
+        
+        if (this.gameObject.name == "Ogre") {
+            port = 8001;
+        }
+        else {
+            port = 8000;
+        }
+
+        Debug.Log("client IP : " + ip + "   port : " + port);
 
         OSCHandler.Instance.clientInit("Akaoni", ip,port);//ipには接続先のipアドレスの文字列を入れる。
     }
