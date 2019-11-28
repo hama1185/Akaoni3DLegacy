@@ -18,6 +18,30 @@ public class Client : MonoBehaviour{
     GameObject CameraAngle;
 
     void Awake() {
+        IpGetter ipGetter = new IpGetter();
+        string myIP = ipGetter.GetIp();
+
+        if (myIP == IpGetter.phone1IP) {
+            ip = IpGetter.phone2IP;
+
+            if (this.gameObject.name == "Ogre") {
+                port = 8001;
+            }
+            else {
+                port = 8000;
+            }
+        }
+        else {
+            ip = IpGetter.phone1IP;
+
+            if (this.gameObject.name == "Ogre") {
+                port = 8000;
+            }
+            else {
+                port = 8001;
+            }
+        }
+
         OSCHandler.Instance.clientInit("Akaoni", ip,port);//ipには接続先のipアドレスの文字列を入れる。
     }
     void Start() {

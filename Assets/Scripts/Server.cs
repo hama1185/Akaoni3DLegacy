@@ -18,6 +18,30 @@ public class Server : MonoBehaviour{
     static bool limitPflag = false;
     static bool limitSflag = false;
     void Awake() {
+        IpGetter ipGetter = new IpGetter();
+        string myIP = ipGetter.GetIp();
+
+        if (myIP == IpGetter.phone1IP) {
+            serverName = IpGetter.phone2IP;
+
+            if (this.gameObject.name == "Villager") {
+                inComingPort = 8000;
+            }
+            else {
+                inComingPort = 8001;
+            }
+        }
+        else {
+            serverName = IpGetter.phone1IP;
+
+            if (this.gameObject.name == "Villager") {
+                inComingPort = 8001;
+            }
+            else {
+                inComingPort = 8000;
+            }
+        }
+
         OSCHandler.Instance.serverInit(serverName,inComingPort); //init OSC　//----------変更
         servers = new Dictionary<string, ServerLog>();
         cameraAdjuster = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<CameraAdjuster>();
