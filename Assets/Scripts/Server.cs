@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 using UnityOSC;
+using UnityEngine.UI;
 
 public class Server : MonoBehaviour{
     // Start is called before the first frame update
@@ -17,6 +18,9 @@ public class Server : MonoBehaviour{
 
     static bool limitPflag = false;
     static bool limitSflag = false;
+
+    public Text flag;
+
     void Awake() {
         IpGetter ipGetter = new IpGetter();
         string myIP = ipGetter.GetIp();
@@ -98,7 +102,7 @@ public class Server : MonoBehaviour{
                     FootSpawn.enemyAngle = rotY;
 				}
 				if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Spawn"){
-                    Debug.Log("a");
+                    // Debug.Log("a");
                     Vector3 spawnPosition;
                     spawnPosition.x = (float)item.Value.packets[lastPacketIndex].Data[0];
                     spawnPosition.y = (float)item.Value.packets[lastPacketIndex].Data[1];
@@ -106,10 +110,12 @@ public class Server : MonoBehaviour{
                     Manager.spawnPoint = spawnPosition;
 				}
                 if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Pflag" && !limitPflag){
+                    // flag.text = "get preparedFlag";
                     Master.flagCount++;
                     limitPflag = true;
 				}
                 if(item.Value.packets[lastPacketIndex].Address.ToString() == "/Sflag" && !limitSflag){
+                    // flag.text = "get startedFlag";
                     Manager.GameStart();
                     limitSflag = true;
 				}

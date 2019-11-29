@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityOSC;
 using System.Text;
+using System.Threading.Tasks;
 
 public class Client : MonoBehaviour{
     // Start is called before the first frame update
@@ -71,10 +72,16 @@ public class Client : MonoBehaviour{
         OSCHandler.Instance.SendMessageToClient("Akaoni","/Spawn",pointList);
     }
 
-    static public void ReturnPflag(){
-        OSCHandler.Instance.SendMessageToClient("Akaoni","/Pflag","OK");//本来True
+    static public async void ReturnPflag(){
+        for (int i = 0; i < 30; i++) {
+            OSCHandler.Instance.SendMessageToClient("Akaoni","/Pflag","OK");//本来True
+            await Task.Delay(15);
+        }
     }
-    static public void ReturnSflag(){
-        OSCHandler.Instance.SendMessageToClient("Akaoni","/Sflag","OK");//本来True
+    static public async void ReturnSflag(){
+        for (int i = 0; i < 30; i++) {
+            await Task.Delay(15);
+            OSCHandler.Instance.SendMessageToClient("Akaoni","/Sflag","OK");//本来True
+        }
     }
 }
