@@ -24,7 +24,7 @@ public class OperationKey : MonoBehaviour
         if(Input.GetMouseButtonUp(0)){
             if((this.transform.position.x >= 13.7 && this.transform.position.x <= 20.4) && 
             (this.transform.position.y >= -4.5 && this.transform.position.y <= 3.7)){
-                SceneManager.LoadScene("VillagersScene");
+                SceneManager.LoadScene("VillagerScene");
             }
             if((this.transform.position.x >= -19.6 && this.transform.position.x <= -12.9) && 
             (this.transform.position.y >= -4.5 && this.transform.position.y <= 3.7)){
